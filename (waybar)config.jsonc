@@ -1,0 +1,93 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 0,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["mpris", "clock"],
+    "modules-right": ["network", "bluetooth", "pulseaudio", "battery", "custom/image-hover", "custom/downloader"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5"
+        }
+    },
+
+    "mpris": {
+        "player": "spotify",
+        "format": "ï†¼ Spotify",
+        "format-paused": "ï†¼ Spotify",
+        "max-length": 25,
+        "exec-if": "pgrep spotify"
+    },
+
+    "clock": {
+        "format": "ï€— {:%I:%M %p  |  ï—´ %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "days": "<span color='#ff6666'><b>{}</b></span>",
+                "months": "<span color='#ffcc66'><b>{}</b></span>",
+                "weeks": "<span color='#99ff99'><b>W{}</b></span>",
+                "today": "<span color='#ff0000'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "network": {
+        "format-wifi": "ï‡« {essid}",
+        "format-ethernet": "ó°ˆ€ Wired",
+        "format-disconnected": "ó°–ª Disconnected",
+        "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}\nFreq: {frequency} GHz",
+        "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}",
+        "tooltip-format-disconnected": "No connection",
+        "on-click": "kitty -e ~/.local/bin/iwctl-tui-repo/.venv/bin/iwctl-tui"
+    },
+
+    "bluetooth": {
+        "format": "ïŠ“ On",
+        "format-disabled": "ó°‚² Off",
+        "format-connected": "ïŠ“ {num_connections}",
+        "tooltip-format": "Status: {status}\nConnected Devices: {num_connections}",
+        "tooltip-format-enumerate-connected": "{device_alias} ({device_address})",
+        "on-click": "blueman-manager"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "ó°Ÿ Muted",
+        "format-icons": {
+            "default": ["ó°•¿", "ó°–€", "ó°•¾"]
+        },
+        "tooltip-format": "Volume: {volume}%\nNode: {desc}",
+        "on-click": "pavucontrol"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["ó°‚Ž", "ó°º", "ó°»", "ó°¼", "ó°½", "ó°¾", "ó°¿", "ó°‚€", "ó°‚", "ó°‚‚", "ó°¹"],
+        "tooltip-format": "Capacity: {capacity}%\nTime remaining: {time}"
+    },
+    
+    "custom/image-hover": {
+        "format": "âš¡",
+        "tooltip": false,
+        "on-click": "python3 ~/.config/waybar/scripts/hover_image.py show",
+        "on-click-right": "python3 ~/.config/waybar/scripts/hover_image.py hide"
+    },
+
+    "custom/downloader": {
+        "format": "ðŸ“¥",
+        "tooltip-format": "Open Python Downloader",
+        "on-click": "kitty -e python /home/aurnav/Editing/downloader.py"
+    }
+}
