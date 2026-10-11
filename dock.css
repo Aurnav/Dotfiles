@@ -1,0 +1,29 @@
+window#waybar {
+    background: transparent;
+}
+
+#box {
+    background: #000000;
+    border: 1px solid #1a1a1a;
+    border-radius: 20px;
+    padding: 12px 4px;
+}
+
+#taskbar button {
+    padding: 6px 0px;
+    margin: 4px 0px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+/* Visual indicator for apps that are currently open */
+#taskbar button.main-window {
+    background: #111111;
+    border-left: 3px solid #8ab4f8;
+}
+
+/* Hover effect */
+#taskbar button:hover {
+    background: #1a1a1a;
+}
+
